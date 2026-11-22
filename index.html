@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Milena.exe — Важное сообщение</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Библиотека конфетти -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Падающие лепестки сакуры на фоне -->
+    <div id="sakura-container"></div>
+
+    <!-- Полноэкранный слой для вспышек мемов -->
+    <div id="meme-overlay" class="meme-overlay hidden">
+    <img id="meme-image" src="" alt="meme" class="hidden" />
+    <video id="meme-video" src="assets/mellstroy.mp4" playsinline class="hidden"></video>
+    </div>
+
+    <!-- ЭКРАН 0: Фейковая загрузка вируса -->
+    <div id="loader-screen" class="win98-window">
+    <div class="win98-titlebar">
+        <span>⚠️ System_Alert.exe</span>
+        <div class="win98-controls">
+        <button disabled>_</button>
+        <button disabled>□</button>
+        <button disabled>✕</button>
+        </div>
+    </div>
+    <div class="win98-body center-content">
+        <p class="virus-text">Загружаем вирус-убийцу...</p>
+        <div class="win98-progress-container">
+        <div id="progress-bar" class="win98-progress-bar"></div>
+        </div>
+        <p id="progress-percent" class="percent-label">0%</p>
+    </div>
+    </div>
+
+    <!-- ОСНОВНОЕ ОКНО КВЕСТА -->
+    <main id="main-window" class="win98-window hidden">
+    <div class="win98-titlebar">
+        <span id="window-title">🌸 Milena_ProstiiiPZHHH_98.exe</span>
+        <div class="win98-controls">
+        <button type="button" onclick="shakeWindow()">_</button>
+        <button type="button" onclick="shakeWindow()">□</button>
+        <button type="button" onclick="alert('Нельзя закрыть, пока не дойдешь до конца!')">✕</button>
+        </div>
+    </div>
+
+    <div class="win98-menubar">
+        <span>Файл</span>
+        <span>Правка</span>
+        <span>Сакура</span>
+        <span>Помощь</span>
+    </div>
+
+    <!-- ЭКРАН ПРИВЕТСТВИЯ -->
+    <section id="intro-screen" class="win98-body center-content">
+        <div class="photo-frame">
+        <img src="assets/milena.jpg" alt="Милена" class="milena-photo" />
+        </div>
+        <div class="win98-textbox">
+        <p><strong>Миленоо привв</strong>, тут всего несколько вопросов. Прошу дойди до конца, будет сюрприз 🌸</p>
+        </div>
+        <button id="start-btn" class="win98-btn primary-btn">▶ Начать</button>
+    </section>
+
+    <!-- ЭКРАН ВОПРОСОВ -->
+    <section id="quiz-screen" class="win98-body hidden">
+        <div class="question-counter" id="question-counter">Вопрос 1 из 6</div>
+        
+        <div class="win98-textbox question-box">
+        <h2 id="question-text">Текст вопроса</h2>
+        </div>
+
+        <!-- Контейнер для кнопок или поля ввода -->
+        <div id="answers-container" class="answers-grid"></div>
+    </section>
+
+    <!-- ФИНАЛЬНЫЙ ЭКРАН -->
+    <section id="final-screen" class="win98-body center-content hidden">
+        <div class="win98-textbox">
+        <p class="final-text">
+            QR код посылки будет тут, если к моменту получения письма, ты кофту еще не получила.
+            <br>
+            🎁
+            <br>
+            <i>понимаю, что это сделано с помощью нейронки. но обещаю, я ток в дизайн не умею, всё остальное сам сделал, идея, как будет сделано, как будет работать, куда отправляется всё, где лежит сайт и т.д.</i>
+        </p>
+        </div>
+
+        <!-- Поле для скриншота QR-кода -->
+        <div class="qr-placeholder-box">
+        <img src="assets/parcel_qr.png" alt="QR код посылки" onerror="this.style.display='none'; document.getElementById('qr-fallback').style.display='flex';" />
+        <div id="qr-fallback" class="qr-fallback">
+            <span>[ писилОЧКА не успела сюда ]</span>
+        </div>
+        </div>
+
+        <p id="send-status" class="status-note">Отправляем твои ответы...</p>
+    </section>
+
+    <div class="win98-statusbar">
+        <span id="status-bar-text">Готово к извинениям 🌸</span>
+        <span>1998 Sakura Edition</span>
+    </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

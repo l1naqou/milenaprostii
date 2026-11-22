@@ -1,0 +1,357 @@
+/* Базовый сброс и шрифты в духе ретро-Windows */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --win-bg: #ffd6e7;
+  --win-dark: #b86b8b;
+  --win-darker: #6e354d;
+  --win-light: #fff0f6;
+  --title-start: #ff6fa5;
+  --title-end: #ffb3d1;
+  --text-color: #2b111c;
+}
+
+body {
+  font-family: "Tahoma", "MS Sans Serif", "Courier New", sans-serif;
+  background: linear-gradient(135deg, #ffc2d9 0%, #ffe5f0 50%, #f7a8c9 100%);
+  color: var(--text-color);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Падающая сакура */
+#sakura-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -30px;
+  font-size: 18px;
+  user-select: none;
+  animation: fall linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(40px);
+  }
+}
+
+/* Окно Windows 98 */
+.win98-window {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--win-bg);
+  border-top: 3px solid var(--win-light);
+  border-left: 3px solid var(--win-light);
+  border-right: 3px solid var(--win-darker);
+  border-bottom: 3px solid var(--win-darker);
+  box-shadow: 4px 4px 0px rgba(110, 53, 77, 0.35);
+}
+
+.win98-titlebar {
+  background: linear-gradient(90deg, var(--title-start), var(--title-end));
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-shadow: 1px 1px 0px #8f2d56;
+}
+
+.win98-controls {
+  display: flex;
+  gap: 3px;
+}
+
+.win98-controls button {
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-darker);
+  border-bottom: 2px solid var(--win-darker);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.win98-menubar {
+  display: flex;
+  gap: 14px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--win-dark);
+}
+
+.win98-body {
+  padding: 16px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+/* Вдавленное поле Win98 */
+.win98-textbox {
+  width: 100%;
+  background: #fff8fb;
+  padding: 12px;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* Прогресс-бар вируса */
+.virus-text {
+  font-weight: bold;
+  font-size: 16px;
+  color: #9e1946;
+}
+
+.win98-progress-container {
+  width: 100%;
+  height: 24px;
+  background: #fff;
+  padding: 2px;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+}
+
+.win98-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff4d94,
+    #ff4d94 12px,
+    #ff85b8 12px,
+    #ff85b8 15px
+  );
+  transition: width 0.1s linear;
+}
+
+.percent-label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Фото Милены */
+.photo-frame {
+  padding: 6px;
+  background: #fff;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  max-width: 240px;
+}
+
+.milena-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Кнопки Windows 98 */
+.win98-btn {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--text-color);
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-darker);
+  border-bottom: 2px solid var(--win-darker);
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.win98-btn:active {
+  border-top: 2px solid var(--win-darker);
+  border-left: 2px solid var(--win-darker);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  transform: translate(1px, 1px);
+}
+
+.win98-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.primary-btn {
+  background: #ffb3d1;
+}
+
+/* Вопросы и инпуты */
+.question-counter {
+  font-size: 12px;
+  font-weight: bold;
+  color: #8f2d56;
+  margin-bottom: 8px;
+}
+
+.question-box h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.answers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.win98-textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  background: #fff;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  resize: none;
+}
+
+/* Место для QR-кода посылки */
+.qr-placeholder-box {
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  padding: 8px;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-placeholder-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.qr-fallback {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #8f2d56;
+}
+
+.status-note {
+  font-size: 12px;
+  color: #6e354d;
+}
+
+/* Статус-бар внизу окна */
+.win98-statusbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-top: 1px solid var(--win-dark);
+  background: #ffcce0;
+}
+
+.meme-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 192, 217, 0.25);
+}
+
+.meme-overlay img,
+.meme-overlay video {
+  width: 100vw;
+  height: 100dvh;
+  object-fit: cover;
+}
+
+.flash-fade {
+  animation: memeFlashFade 2s ease-out forwards;
+}
+
+@keyframes memeFlashFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  12% {
+    opacity: 0.96;
+    transform: scale(1);
+  }
+  65% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+.shake {
+  animation: windowShake 0.45s ease-in-out;
+}
+
+@keyframes windowShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px) rotate(-1deg); }
+  40% { transform: translateX(8px) rotate(1deg); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.hidden {
+  display: none !important;
+}
