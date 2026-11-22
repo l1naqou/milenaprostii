@@ -274,7 +274,7 @@ async function finishQuiz() {
 
   const statusNote = document.getElementById("send-status");
 
-  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "b384f517-8ed0-460a-acdd-5e9995f04db2") {
+  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "YOUR_API_KEY") {
     statusNote.innerText = "Все ответы записаны! 🌸";
     return;
   }
