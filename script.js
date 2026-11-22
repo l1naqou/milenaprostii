@@ -1,4 +1,4 @@
-const WEB3FORMS_KEY = "1b464fca-ed8d-44ea-8911-85280803074f";
+const WEB3FORMS_KEY = "b384f517-8ed0-460a-acdd-5e9995f04db2";
 
 const questions = [
   {
@@ -96,7 +96,7 @@ function runFakeVirusLoader() {
     if (progress >= 100) {
       progress = 100;
       progressBar.style.width = "100%";
-      progressPercent.innerText = "100% - Наебал, загружаю милоту 🌸";
+      progressPercent.innerText = "100% - Шиза, загружаю милоту 🌸";
       clearInterval(interval);
       setTimeout(() => {
         loaderScreen.classList.add("hidden");
@@ -274,7 +274,7 @@ async function finishQuiz() {
 
   const statusNote = document.getElementById("send-status");
 
-  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "ТВОЙ_КЛЮЧ_ОТ_WEB3FORMS") {
+  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "b384f517-8ed0-460a-acdd-5e9995f04db2") {
     statusNote.innerText = "Все ответы записаны! 🌸";
     return;
   }
