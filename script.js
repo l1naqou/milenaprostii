@@ -273,11 +273,12 @@ async function finishQuiz() {
   launchConfetti();
 
   const statusNote = document.getElementById("send-status");
+  statusNote.innerText = "Отправляем ответы на почту...";
 
-  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "YOUR_API_KEY") {
-    statusNote.innerText = "Все ответы записаны! 🌸";
-    return;
-  }
+  // Собираем ответы в удобный текстовый отчет
+  const formattedMessage = Object.entries(userAnswers)
+    .map(([q, a]) => `${q}\nОтвет: ${a}`)
+    .join("\n\n");
 
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -290,17 +291,21 @@ async function finishQuiz() {
         access_key: WEB3FORMS_KEY,
         subject: "🌸 Ответы Милены с сайта-извинения!",
         from_name: "Milena Quest 98",
-        ...userAnswers
+        message: formattedMessage
       })
     });
 
-    if (response.ok) {
-      statusNote.innerText = "Ответы успешно доставлены 🌸";
+    const data = await response.json();
+    console.log("Web3Forms response:", data);
+
+    if (response.ok && data.success) {
+      statusNote.innerText = "Ответы успешно отправлены! 🌸";
     } else {
-      statusNote.innerText = "Готово! 🌸";
+      statusNote.innerText = `Ошибка отправки: ${data.message || response.status}`;
     }
   } catch (error) {
-    statusNote.innerText = "Готово! 🌸";
+    console.error("Fetch error:", error);
+    statusNote.innerText = `Сетевая ошибка: ${error.message}`;
   }
 }
 
