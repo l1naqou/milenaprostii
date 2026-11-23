@@ -182,35 +182,35 @@ function triggerMemeEffect(action) {
   switch (action) {
     case "confetti":
       launchConfetti();
-      statusBarText.innerText = "ЕССС! 🌸✨";
+      statusBarText.innerText = "Я понял, что мне тяжело без тебя☕";
       break;
     case "mellstroy":
       flashMellstroyVideo();
-      statusBarText.innerText = "ЧТОООО?!";
+      statusBarText.innerText = "Я понял, что мне тяжело без тебя☕";
       break;
     case "zayka":
       flashMemeImage("assets/zayka.jpg");
-      statusBarText.innerText = "очень необычно, зайка";
+      statusBarText.innerText = "Правда👽";
       break;
     case "yummy":
       launchConfetti();
       playYummySound();
-      statusBarText.innerText = "это кто-то читает чтоль 🍕🍣";
+      statusBarText.innerText = "Если не простишь, то, если не хочешь, можешь не писать. Твои ответы я увижу";
       break;
     case "shashlik":
       flashMemeImage("assets/shashlik.jpg");
-      statusBarText.innerText = "Шашлындос 🍢";
+      statusBarText.innerText = "Если не простишь, то если не хочешь, можешь не писать. Твои ответы я увижу";
       break;
     case "spongebob":
       flashMemeImage("assets/spongebob.jpg");
-      statusBarText.innerText = "Пиздец 📜";
+      statusBarText.innerText = "прошу, дай мне второй шанс";
       break;
     case "cat_drill":
       flashMemeImage("assets/cat_drill.jpg");
-      statusBarText.innerText = "Бжжжжж 🐱";
+      statusBarText.innerText = "ппрошу, дай мне второй шанс";
       break;
     default:
-      statusBarText.innerText = "Ответ принят";
+      statusBarText.innerText = "И прости";
       break;
   }
 }
@@ -317,3 +317,4 @@ document.getElementById("start-btn").addEventListener("click", () => {
 
 createSakuraPetals();
 runFakeVirusLoader();
+
