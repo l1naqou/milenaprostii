@@ -96,7 +96,7 @@ function runFakeVirusLoader() {
     if (progress >= 100) {
       progress = 100;
       progressBar.style.width = "100%";
-      progressPercent.innerText = "100% - Шиза, загружаю милоту 🌸";
+      progressPercent.innerText = "100% - Шиза, загружаю милоту🌸";
       clearInterval(interval);
       setTimeout(() => {
         loaderScreen.classList.add("hidden");
@@ -269,7 +269,7 @@ function handleAnswer(answerValue, action) {
 async function finishQuiz() {
   quizScreen.classList.add("hidden");
   finalScreen.classList.remove("hidden");
-  statusBarText.innerText = "Сюрприз открыт! 🎁";
+  statusBarText.innerText = "Сюрприз открыт!🎁";
   launchConfetti();
 
   const statusNote = document.getElementById("send-status");
@@ -299,7 +299,7 @@ async function finishQuiz() {
     console.log("Web3Forms response:", data);
 
     if (response.ok && data.success) {
-      statusNote.innerText = "Ответы успешно отправлены! 🌸";
+      statusNote.innerText = "Ответы успешно отправлены!🌸";
     } else {
       statusNote.innerText = `Ошибка отправки: ${data.message || response.status}`;
     }
